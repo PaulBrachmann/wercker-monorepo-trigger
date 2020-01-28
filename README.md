@@ -8,7 +8,7 @@ Example:
 
     build:
       steps:
-        - PaulBrachmann/monorepo-trigger:
+        - paulbrachmann/monorepo-trigger:
           package: "ui"
           pipeline: $WERCKER_PIPELINE_ID
           token: $WERCKER_API_TOKEN
