@@ -1,0 +1,24 @@
+name: monorepo-trigger
+version: 0.1.0
+summary: Trigger another build pipeline if the given package has been changed in the last commit.
+category: imported
+tags:
+  - build
+  - trigger
+  - conditional
+  - dependency
+  - monorepo
+  - git folder
+properties:
+  - name: package
+    type: string
+    required: false
+    default: ""
+  - name: pipeline
+    type: string
+    required: true
+    default: ""
+  - name: token
+    type: string
+    required: true
+    default: ""
