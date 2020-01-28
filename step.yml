@@ -1,5 +1,5 @@
 name: monorepo-trigger
-version: 0.1.1
+version: 0.1.2
 summary: Trigger another build pipeline if the given package has been changed in the last commit.
 category: imported
 tags:
