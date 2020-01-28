@@ -15,12 +15,13 @@ if [ "$TRIGGER_BUILD" = "true" ]; then
 
   REQ_JSON="{\
   \"pipelineId\": \"$WERCKER_MONOREPO_TRIGGER_PIPELINE\", \
+  \"sourceRunId\": \"$WERCKER_RUN_ID\", \
   \"branch\": \"$WERCKER_GIT_BRANCH\", \
   \"commitHash\": \"$WERCKER_GIT_COMMIT\"}"
 
   info "Initiating build"
 
-  if ! curl -s --write-out "\n\nStatus code: %{http_code}\n" \
+  if ! curl -s --fail -w "\n\nStatus code: %{http_code}\n" \
     -H "Content-type: application/json" -H "Authorization: Bearer $WERCKER_MONOREPO_TRIGGER_TOKEN" \
     "$REQ_ENDPOINT" -d "$REQ_JSON"; then
     fail "$WBTC_TRIGGER_RESPONSE"
