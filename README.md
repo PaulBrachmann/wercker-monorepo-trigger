@@ -1,6 +1,6 @@
 # Monorepo Trigger
 
-A wercker step to trigger the build of a package (sub directory) in a monorepo if it has changed in the last commit.
+A wercker after-step to trigger the build of a package (sub directory) in a monorepo if it has changed in the last commit.
 
 Prerequisites:
 
@@ -10,7 +10,7 @@ Prerequisites:
 Example:
 
     build:
-      steps:
+      after-steps:
         - paulbrachmann/monorepo-trigger:
           package: "ui"
           pipeline: $WERCKER_PIPELINE_ID
