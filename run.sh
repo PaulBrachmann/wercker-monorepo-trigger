@@ -2,8 +2,10 @@
 
 TRIGGER_BUILD=false
 
-if [ -n "$WERCKER_MONOREPO_TRIGGERPACKAGE" ] && \
-  [ "$(git --no-pager diff --name-only HEAD~1 HEAD "$WERCKER_MONOREPO_TRIGGER_PACKAGE" | wc -c)" -ne 0 ]; then
+if [ -z "$WERCKER_MONOREPO_TRIGGER_PACKAGE" ]; then
+  info "No package name provided."
+  TRIGGER_BUILD=true
+elif [ "$(git --no-pager diff --name-only HEAD~1 HEAD "$WERCKER_MONOREPO_TRIGGER_PACKAGE" | wc -c)" -ne 0 ]; then
   info "Changed detected in package $WERCKER_MONOREPO_TRIGGER_PACKAGE."
   TRIGGER_BUILD=true
 fi
